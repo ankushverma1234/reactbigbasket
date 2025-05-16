@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './orders.css';
 
-function Orders() {
+function Order() {
   const orders = useSelector((state) => state.orders);
 
   return (
@@ -34,4 +34,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default Order;
