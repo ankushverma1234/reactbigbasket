@@ -11,7 +11,7 @@ import './milk.css';
 import './chocolate.css';
 
 import Home from './Home';
-import Signing from './signing';
+ 
 import Order from './order';
 import AboutUs from './aboutUs';
 import ContactUs from './contactUs';
@@ -21,7 +21,7 @@ import NonVeg from './nonVeg';
 import Cart from './cart';
 import Veg from './Veg';
 import Chocolate from './chocolate';
- 
+import Signing from './signing';
 
 function App() {
   const cart = useSelector((state) => state.cart); // get cart from Redux
