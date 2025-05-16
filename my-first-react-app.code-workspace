@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "../ReactExamples/my-first-react-app"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "bigbasket"
+	}
+}

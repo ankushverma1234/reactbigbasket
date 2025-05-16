@@ -1,0 +1,245 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #56ab2f, #a8e063);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Heading */
+.veg-page {
+  padding: 40px 240px;
+}
+
+.veg-headings {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.veg-description {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #f0f0f0;
+}
+
+/* Layout */
+.veg-layout {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Sidebar Filter */
+.veg-filter {
+  flex: 0.15;
+  min-width: 230px; /* Reduced width */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  padding: 6px; /* Reduced padding */
+  border-radius: 8px; /* Slightly reduced border radius */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  max-height: 400px; /* Reduced max height */
+  overflow-y: auto; /* Make it scrollable */
+  margin-left: -60px;
+}
+
+.filter-card {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  font-size: 0.85rem; /* Slightly smaller font inside card */
+  max-width: 230px; 
+   margin-left: -0px;
+  
+}
+
+.filter-card:hover {
+  background-color: rgba(0, 0, 0, 0.18);
+  transform: scale(1.01);
+}
+
+.filter-title {
+  font-size: 1.3rem; /* Smaller title font size */
+  margin-bottom: 12px; /* Reduced margin */
+  color: #fff;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem; /* Reduced font size */
+  margin-bottom: 8px; /* Reduced margin */
+  color: #f8f8f8;
+}
+
+.filter-option input {
+  margin-right: 8px; /* Reduced space between checkbox and label */
+}
+
+/* Product Area */
+.veg-product-area {
+  flex: 1;
+}
+
+/* Product Cards */
+.veg-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 40px; /* Reduced gap between product cards */
+  animation: fadeInUp 1s ease-in-out;
+  margin-right: -28px;
+}
+
+.veg-card {
+  background: rgba(224, 247, 250, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1s ease-in;
+   margin-right: -18px;
+}
+
+.veg-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.veg-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid #e0f7fa;
+  background-color: #e0f7fa;
+  padding: 5px;
+  display: block;
+}
+
+.veg-card h3 {
+  font-size: 1.2rem;
+  color: #e0f7fa;
+  margin: 10px 0 5px;
+}
+
+.veg-card p {
+  font-size: 1rem;
+  color: #f1f1f1;
+  margin-bottom: 10px;
+}
+
+.veg-card button {
+  background-color: #27ae60;
+  color: #e0f7fa;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.veg-card button:hover {
+  background-color: #1b8349;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  background-color: #00b894;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #019875;
+}
+
+.page-button.active {
+  background-color: #0984e3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .veg-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .veg-filter {
+    width: 100%;
+  }
+
+  .veg-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .veg-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .clear-button {
+  margin-top: 1rem;
+  padding: 8px 12px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.clear-button:hover {
+  background-color: #cc0000;
+}
+
+}
