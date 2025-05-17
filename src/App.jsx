@@ -9,17 +9,18 @@ import './veg.css';
 import './nonveg.css';
 import './milk.css';
 
-import Home from './HomeComponent';
 import NonVeg from './NonVeg';
 import Veg from './Veg';
-import Milk from './Milk';
+ 
 
 import Signing from './Signing';
-import Cart from './Cart';
 import Order from './Order';
 import AboutUs from './AboutUs';
 import ChocolateComponent from './ChocolateComponent';
 import ContactUsComponent from './ContactUsComponent';
+import HomeComponent from './HomeComponent';
+import CartComponent from './CartComponent';
+import MilkComponent from './MilkComponent';
 
 
 function App() {
@@ -46,13 +47,13 @@ function App() {
 
       <main className="main-content">
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<HomeComponent />} />
           <Route path="/nonveg" element={<NonVeg />} />
           <Route path="/veg" element={<Veg />} />
-          <Route path="/milk" element={<Milk />} />
+          <Route path="/milk" element={<MilkComponent />} />
           <Route path="/chocolate" element={<ChocolateComponent />} />
           <Route path="/signing" element={<Signing />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<CartComponent />} />
           <Route path="/orders" element={<Order />} />
           <Route path="/aboutus" element={<AboutUs />} /> {/* ✅ Correct usage */}
           <Route path="/contactus" element={<ContactUsComponent />} />

@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import QRCode from 'react-qr-code';
 import emailjs from 'emailjs-com';
 
-function Cart() {
+function CartComponent() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -233,4 +233,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default CartComponent;
