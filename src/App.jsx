@@ -11,15 +11,16 @@ import './milk.css';
 import './chocolate.css';
 
 import Home from './Home';
-import NonVeg from './nonVeg';
-import Cart from './cart';
+import NonVeg from './NonVeg';
 import Veg from './Veg';
-import Chocolate from './chocolate';
-import Signing from './signing';
-import Order from './order';
-import AboutUs from './AboutUs'; // ✅ Correct import added here
-import ContactUs from './contactUs';
 import Milk from './Milk';
+import Chocolate from './chocolate';
+import Signing from './Signing';
+import Cart from './Cart';
+import Order from './Order';
+import AboutUs from './AboutUs';
+import ContactUs from './Contactus';
+
 
 function App() {
   const cart = useSelector((state) => state.cart); // get cart from Redux
@@ -55,7 +56,6 @@ function App() {
           <Route path="/orders" element={<Order />} />
           <Route path="/aboutus" element={<AboutUs />} /> {/* ✅ Correct usage */}
           <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/" element={<Home />} />
         </Routes>
       </main>
 
