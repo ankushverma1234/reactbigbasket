@@ -8,18 +8,19 @@ import './home.css';
 import './veg.css';
 import './nonveg.css';
 import './milk.css';
-import './chocolate.css';
 
 import Home from './Home';
 import NonVeg from './NonVeg';
 import Veg from './Veg';
 import Milk from './Milk';
-import Chocolate from './chocolate';
+
 import Signing from './Signing';
 import Cart from './Cart';
 import Order from './Order';
 import AboutUs from './AboutUs';
 import ContactUs from './Contactus';
+import Chocolate from './ChocolateComponent';
+import ChocolateComponent from './ChocolateComponent';
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
           <Route path="/nonveg" element={<NonVeg />} />
           <Route path="/veg" element={<Veg />} />
           <Route path="/milk" element={<Milk />} />
-          <Route path="/chocolate" element={<Chocolate />} />
+          <Route path="/chocolate" element={<ChocolateComponent />} />
           <Route path="/signing" element={<Signing />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Order />} />

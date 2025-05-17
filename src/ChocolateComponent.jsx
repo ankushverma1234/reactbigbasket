@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './store';
 import './chocolate.css';
 
-function Chocolate() {
+function ChocolateComponent() {
   const chocolateProducts = useSelector(state => state.products.chocolate);
   const dispatch = useDispatch();
 
@@ -111,4 +111,4 @@ function Chocolate() {
   );
 }
 
-export default Chocolate;
+export default ChocolateComponent;
