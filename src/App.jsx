@@ -18,9 +18,8 @@ import Signing from './Signing';
 import Cart from './Cart';
 import Order from './Order';
 import AboutUs from './AboutUs';
-import ContactUs from './Contactus';
-import Chocolate from './ChocolateComponent';
 import ChocolateComponent from './ChocolateComponent';
+import ContactUsComponent from './ContactUsComponent';
 
 
 function App() {
@@ -56,7 +55,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Order />} />
           <Route path="/aboutus" element={<AboutUs />} /> {/* ✅ Correct usage */}
-          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/contactus" element={<ContactUsComponent />} />
         </Routes>
       </main>
 
