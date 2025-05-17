@@ -6,7 +6,7 @@ const categories = [
   {
     title: 'Vegetables',
     description: 'Fresh, organic vegetables straight from the farm.',
-    image: 'https://i.imgur.com/IhNckHk.jpg', // ✅ use 'image' not 'images'
+    image: 'https://i.imgur.com/IhNckHk.jpg',
     path: '/veg',
   },
   {
@@ -29,7 +29,8 @@ const categories = [
   }
 ];
 
-const Home = () => {
+// ✅ Component name matches file name (optional but cleaner)
+const HomeComponent = () => {
   return (
     <div className="home-wrapper">
       <section className="hero">
@@ -40,11 +41,16 @@ const Home = () => {
       <section className="category-list">
         {categories.map((cat, i) => (
           <div className="category-card" key={i}>
-            <div className="category-img" style={{ backgroundImage: `url(${cat.image})` }}></div>
+            <div
+              className="category-img"
+              style={{ backgroundImage: `url(${cat.image})` }}
+            ></div>
             <div className="category-content">
               <h2>{cat.title}</h2>
               <p>{cat.description}</p>
-              <Link to={cat.path} className="shop-btn">Shop Now →</Link>
+              <Link to={cat.path} className="shop-btn">
+                Shop Now →
+              </Link>
             </div>
           </div>
         ))}
@@ -53,4 +59,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeComponent;

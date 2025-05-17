@@ -9,7 +9,7 @@ import './veg.css';
 import './nonveg.css';
 import './milk.css';
 
-import Home from './Home';
+import Home from './HomeComponent';
 import NonVeg from './NonVeg';
 import Veg from './Veg';
 import Milk from './Milk';
