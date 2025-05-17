@@ -11,7 +11,6 @@ import './milk.css';
 import './chocolate.css';
 
 import Home from './Home';
-import ContactUs from './contactUs';
 import Milk from './milk';
 import NonVeg from './nonVeg';
 import Cart from './cart';
@@ -20,6 +19,7 @@ import Chocolate from './chocolate';
 import Signing from './signing';
 import Order from './order';
 import AboutUs from './AboutUs'; // ✅ Correct import added here
+import ContactUs from './contactUs';
 
 function App() {
   const cart = useSelector((state) => state.cart); // get cart from Redux
@@ -39,7 +39,7 @@ function App() {
           <Link to="/cart">Cart ({cartCount})</Link>
           <Link to="/orders">Order</Link>
           <Link to="/aboutus">About Us</Link>
-          <Link to="/contactus">Contact Us</Link>
+          <Link to="/ContactUs">Contact Us</Link>
         </nav>
       </header>
 
