@@ -11,7 +11,6 @@ import './milk.css';
 import './chocolate.css';
 
 import Home from './Home';
-import AboutUs from './aboutUs';
 import ContactUs from './contactUs';
 import Milk from './milk';
 import NonVeg from './nonVeg';
@@ -20,6 +19,7 @@ import Veg from './Veg';
 import Chocolate from './chocolate';
 import Signing from './signing';
 import Order from './order';
+import AboutUs from './AboutUs'; // ✅ Correct import added here
 
 function App() {
   const cart = useSelector((state) => state.cart); // get cart from Redux
@@ -37,7 +37,7 @@ function App() {
           <Link to="/chocolate">Chocolate</Link>
           <Link to="/signing">Sign In</Link>
           <Link to="/cart">Cart ({cartCount})</Link>
-          <Link to="/orders">Orders</Link>
+          <Link to="/orders">Order</Link>
           <Link to="/aboutus">About Us</Link>
           <Link to="/contactus">Contact Us</Link>
         </nav>
@@ -53,7 +53,7 @@ function App() {
           <Route path="/signing" element={<Signing />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Order />} />
-          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/aboutus" element={<AboutUs />} /> {/* ✅ Correct usage */}
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/" element={<Home />} />
         </Routes>

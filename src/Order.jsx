@@ -1,7 +1,7 @@
 // Orders.jsx
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './orders.css';
+import './order.css';
 
 function Order() {
   const orders = useSelector((state) => state.orders);
