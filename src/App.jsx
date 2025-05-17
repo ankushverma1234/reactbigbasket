@@ -11,7 +11,6 @@ import './milk.css';
 import './chocolate.css';
 
 import Home from './Home';
-import Milk from './milk';
 import NonVeg from './nonVeg';
 import Cart from './cart';
 import Veg from './Veg';
@@ -20,6 +19,7 @@ import Signing from './signing';
 import Order from './order';
 import AboutUs from './AboutUs'; // ✅ Correct import added here
 import ContactUs from './contactUs';
+import Milk from './Milk';
 
 function App() {
   const cart = useSelector((state) => state.cart); // get cart from Redux
