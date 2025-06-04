@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './store';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './chocolate.css';
 
 function ChocolateComponent() {
@@ -17,6 +19,18 @@ function ChocolateComponent() {
     const value = Number(e.target.value);
     setSelectedPriceRange([minPrice, value]);
     setCurrentPage(1);
+  };
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.name} Product added to cart!`, {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: false,
+      pauseOnHover: false,
+      draggable: true,
+      theme: 'dark',
+    });
   };
 
   const filteredProducts = chocolateProducts.filter(product =>
@@ -76,7 +90,7 @@ function ChocolateComponent() {
                 <img src={product.image} alt={product.name} className="chocolate-image" />
                 <h3>{product.name}</h3>
                 <p>₹{product.price.toFixed(2)}</p>
-                <button onClick={() => dispatch(addToCart(product))}>
+                <button onClick={() => handleAddToCart(product)}>
                   Add to Cart
                 </button>
               </div>
@@ -107,6 +121,9 @@ function ChocolateComponent() {
           </button>
         </div>
       </div>
+
+      {/* Toast Container */}
+      <ToastContainer />
     </div>
   );
 }

@@ -1,37 +1,39 @@
 import React from 'react';
 import './home.css';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const categories = [
   {
     title: 'Vegetables',
     description: 'Fresh, organic vegetables straight from the farm.',
-    image: 'https://i.imgur.com/IhNckHk.jpg',
+    image: '/vegetables/vegetables.jpg',
     path: '/veg',
   },
   {
     title: 'Non-Veg Items',
     description: 'Premium quality meat and seafood at your doorstep.',
-    image: 'https://i.imgur.com/6oZgkaK.jpg',
+    image: '/nonveges/nonveg.jpg',
     path: '/nonveg',
   },
   {
     title: 'Dairy & Milk',
     description: 'Milk, paneer, cheese, and more from trusted brands.',
-    image: 'https://i.imgur.com/KF4TY3u.jpg',
+    image: '/milkProduct/milkproduct.jpg',
     path: '/milk',
   },
   {
     title: 'Chocolates',
     description: 'Delicious chocolates for all your sweet cravings.',
-    image: 'https://i.imgur.com/zSnE0Io.jpg',
+    image: '/chocolate/chocolate.jpg',
     path: '/chocolate',
   }
 ];
 
-// ✅ Component name matches file name (optional but cleaner)
 const HomeComponent = () => {
   return (
+    <div className="home-page">
     <div className="home-wrapper">
       <section className="hero">
         <h1>Welcome to BigBasket</h1>
@@ -55,6 +57,10 @@ const HomeComponent = () => {
           </div>
         ))}
       </section>
+
+      {/* ToastContainer added once globally here */}
+      <ToastContainer position="bottom-center" autoClose={2000} />
+    </div>
     </div>
   );
 };

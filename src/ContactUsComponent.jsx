@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 function ContactUsComponent() {
   return (
-    <div>
-      
+    <div className="contact-container">
+      {/* Add your contact content here */}
     </div>
-  )
+  );
 }
 
-export default ContactUsComponent
+export default ContactUsComponent;

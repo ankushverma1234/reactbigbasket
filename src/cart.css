@@ -7,8 +7,37 @@ html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ✅ Header Section */
+.header {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header a {
+  text-decoration: none;
+  margin-left: 16px;
+  color: #3498db;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.header a:hover {
+  color: #2c3e50;
+}
+
+/* ✅ Cart Page */
 .cart-page {
-  padding: 40px 440px;
+  padding: 100px 440px 40px; /* Extra top padding to avoid header overlap */
   display: flex;
   flex-direction: column;
 }
@@ -64,7 +93,7 @@ li:hover {
   transform: scale(1.02);
 }
 
-/* ✅ Colored Rows for Visual Variety */
+/* ✅ Colored Rows */
 li:nth-child(1) { background-color: #ffcccc; }
 li:nth-child(2) { background-color: #cce5ff; }
 li:nth-child(3) { background-color: #d1f7d1; }
@@ -76,10 +105,10 @@ li:nth-child(8) { background-color: #d1f7d1; }
 li:nth-child(9) { background-color: #ffeb99; }
 li:nth-child(10) { background-color: #e0bbf0; }
 
-/* ✅ Buttons for Quantity and Remove */
+/* ✅ Buttons */
 button {
   padding: 4px 8px;
-  font-size: 0.85rem;
+  font-size: .85rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -91,7 +120,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* ✅ Discount Buttons Section */
+/* ✅ Discount Buttons */
 .discount-buttons {
   margin-top: 25px;
   padding: 15px;
@@ -182,25 +211,53 @@ button:hover {
   font-size: 1.1rem;
 }
 
+/* ✅ Cracker Animation */
+@keyframes crackers {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.cracker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: gold;
+  text-shadow: 0 0 10px #fff, 0 0 20px gold, 0 0 30px red;
+  animation: crackers 2s ease-in-out infinite;
+  z-index: 9999;
+  pointer-events: none;
+}
+
 /* ✅ Responsive Design */
 @media (max-width: 600px) {
+  .cart-page {
+    padding: 100px 20px 40px;
+  }
+
   li {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
 
-  button {
-    margin: 4px 0;
-  }
-
   .cart-container {
     padding: 20px;
-    font-family: Arial, sans-serif;
   }
 
-  ol {
-    padding-left: 20px;
+  button {
+    margin: 4px 0;
   }
 
   .discount-buttons {
@@ -225,36 +282,9 @@ button:hover {
     margin: 5px 0;
   }
 
-
-  @keyframes crackers {
-    0% {
-      transform: scale(1);
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.5);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0;
-    }
+  .header {
+    justify-content: center;
+    padding: 10px;
+    font-size: 0.95rem;
   }
-  
-  .cracker {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: gold;
-    text-shadow: 0 0 10px #fff, 0 0 20px gold, 0 0 30px red;
-    animation: crackers 2s ease-in-out infinite;
-    z-index: 9999;
-    pointer-events: none;
-  }
-
-  
-  
-
 }

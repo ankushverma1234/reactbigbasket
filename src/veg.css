@@ -16,7 +16,7 @@ body {
 
 /* Page Heading */
 .veg-page {
-  padding: 40px 240px;
+  padding: 40px 50px;
 }
 
 .veg-headings {
@@ -45,29 +45,23 @@ body {
 /* Sidebar Filter */
 .veg-filter {
   flex: 0.15;
-  min-width: 230px; /* Reduced width */
+  min-width: 230px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
-  padding: 6px; /* Reduced padding */
-  border-radius: 8px; /* Slightly reduced border radius */
+  padding: 6px;
+  border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   height: fit-content;
-  max-height: 400px; /* Reduced max height */
-  overflow-y: auto; /* Make it scrollable */
+  max-height: 400px;
+  overflow-y: auto;
   margin-left: -60px;
 }
 
 .filter-card {
   background-color: rgba(0, 0, 0, 0.1);
-  border: none;
   padding: 4px 8px;
   border-radius: 6px;
-  box-shadow: none;
-  transition: all 0.3s ease;
-  font-size: 0.85rem; /* Slightly smaller font inside card */
-  max-width: 230px; 
-   margin-left: -0px;
-  
+  max-width: 220px;
 }
 
 .filter-card:hover {
@@ -76,21 +70,38 @@ body {
 }
 
 .filter-title {
-  font-size: 1.3rem; /* Smaller title font size */
-  margin-bottom: 12px; /* Reduced margin */
+  font-size: 1.3rem;
+  margin-bottom: 12px;
   color: #fff;
 }
 
 .filter-option {
   display: flex;
   align-items: center;
-  font-size: 0.9rem; /* Reduced font size */
-  margin-bottom: 8px; /* Reduced margin */
+  font-size: 0.9rem;
+  margin-bottom: 8px;
   color: #f8f8f8;
 }
 
 .filter-option input {
-  margin-right: 8px; /* Reduced space between checkbox and label */
+  margin-right: 8px;
+}
+
+/* Clear Filters Button */
+.clear-button {
+  margin-top: 1rem;
+  padding: 8px 12px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.clear-button:hover {
+  background-color: #cc0000;
 }
 
 /* Product Area */
@@ -101,10 +112,8 @@ body {
 /* Product Cards */
 .veg-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 40px; /* Reduced gap between product cards */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
   animation: fadeInUp 1s ease-in-out;
   margin-right: -28px;
 }
@@ -119,7 +128,7 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeIn 1s ease-in;
-   margin-right: -18px;
+  margin-right: -18px;
 }
 
 .veg-card:hover {
@@ -136,7 +145,6 @@ body {
   border: 4px solid #e0f7fa;
   background-color: #e0f7fa;
   padding: 5px;
-  display: block;
 }
 
 .veg-card h3 {
@@ -148,98 +156,155 @@ body {
 .veg-card p {
   font-size: 1rem;
   color: #f1f1f1;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .veg-card button {
-  background-color: #27ae60;
-  color: #e0f7fa;
+  background: linear-gradient(135deg, #56ab2f, #a8e063);
   border: none;
-  padding: 6px 14px;
-  border-radius: 25px;
-  font-weight: 500;
-  font-size: 1.1rem;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #fff;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .veg-card button:hover {
-  background-color: #1b8349;
+  background: linear-gradient(135deg, #3c7c17, #6fc52a);
 }
 
 /* Pagination */
 .pagination {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .pagination button {
-  padding: 8px 16px;
-  background-color: #00b894;
+  background-color: rgba(255, 255, 255, 0.2);
   border: none;
-  border-radius: 20px;
-  color: #fff;
+  color: #e0f7fa;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.pagination button:hover {
-  background-color: #019875;
+.pagination button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .page-button.active {
-  background-color: #0984e3;
+  background-color: #27ae60;
+  color: #e0f7fa;
+  box-shadow: 0 0 8px #27ae60;
+}
+
+/* No products message */
+.no-products {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ffe0e0;
+  margin-top: 40px;
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Toastify custom styling */
+.Toastify__toast {
+  background: linear-gradient(135deg, #56ab2f, #a8e063);
+  color: #e0f7fa;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 24px;
+  border: 2px solid #27ae60;
+  letter-spacing: 0.02em;
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  border-color: #1b8349;
+  color: #dff9fb;
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #ff4d4d, #e74c3c);
+  border-color: #cc0000;
+  color: #fff0f0;
+}
+
+.Toastify__close-button {
+  color: #dff9fb;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+/* Progress bar style */
+.Toastify__progress-bar {
+  background: #1b8349;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .veg-page {
+    padding: 30px 60px;
+  }
   .veg-layout {
     flex-direction: column;
     align-items: center;
   }
-
   .veg-filter {
+    margin-left: 0;
+    margin-bottom: 25px;
     width: 100%;
+    max-width: 320px;
   }
-
   .veg-container {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin-right: 0;
   }
+}
 
+@media (max-width: 600px) {
+  .veg-page {
+    padding: 20px 15px;
+  }
   .veg-card {
-    width: 90%;
-    max-width: 300px;
+    width: 100%;
+    margin-right: 0;
   }
-
-  .clear-button {
-  margin-top: 1rem;
-  padding: 8px 12px;
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.clear-button:hover {
-  background-color: #cc0000;
-}
-
 }

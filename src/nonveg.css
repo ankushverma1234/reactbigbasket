@@ -1,4 +1,7 @@
 /* 🎯 Reset & Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/react-toastify/dist/ReactToastify.css');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,12 +12,13 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right, #ff416c, #ff4b2b);
   color: #fff;
+  
   min-height: 100vh;
 }
 
 /* 🧾 Page Wrapper */
 .nonveg-page {
-  padding: 40px 440px;
+  padding: 40px 40px;
   display: flex;
   flex-direction: column;
 }
@@ -25,7 +29,8 @@ body {
   font-size: 2.5rem;
   margin-top: 20px;
   background: linear-gradient(90deg, #ff4b2b, #ff416c);
-  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nonveg-description {
@@ -40,7 +45,7 @@ body {
   width: 100%;
   margin: 0 auto 40px auto;
   background: rgba(255, 255, 255, 0.07);
-  padding: 0.5px;
+  padding: 10px;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -88,49 +93,13 @@ body {
   font-weight: bold;
 }
 
-/* 📐 Layout: Sidebar + Content */
-.nonveg-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-/* 🧱 Sidebar */
-.filter-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-.filter-sidebar h3 {
-  color: #f1f1f1;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-
-.filter-option {
-  display: block;
-  color: #fff;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
 /* 📦 Main Content Area */
 .nonveg-content {
   flex: 1;
-  margin-left: 270px;
+  margin-left: 0;
   padding: 20px;
   overflow-x: hidden;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* 🧊 Product Grid */
@@ -187,6 +156,10 @@ body {
   font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.3s;
+  width: 100%;
+  max-width: 140px;
+  margin: 0 auto;
+  display: block;
 }
 
 .nonveg-card button:hover {
@@ -199,6 +172,8 @@ body {
   justify-content: center;
   margin-top: 30px;
   gap: 10px;
+  flex-wrap: wrap;
+  padding: 0 10px;
 }
 
 .page-button {
@@ -210,6 +185,8 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  min-width: 40px;
+  text-align: center;
 }
 
 .page-button:hover {
@@ -235,36 +212,43 @@ body {
 }
 
 /* 📱 Responsive Design */
+
+/* Tablet large */
 @media (max-width: 1200px) {
+  .nonveg-page {
+    padding: 40px 80px;
+  }
+
   .nonveg-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* Tablet medium */
 @media (max-width: 768px) {
-  .nonveg-layout {
-    flex-direction: column;
+  .nonveg-page {
+    padding: 30px 40px;
   }
 
   .nonveg-container {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .filter-sidebar {
-    max-width: 100%;
-    position: relative;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
   .nonveg-content {
     margin-left: 0;
+    padding: 15px 10px 30px 10px;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
+  .nonveg-page {
+    padding: 20px 15px;
+  }
+
   .nonveg-container {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .nonveg-card {
@@ -279,4 +263,37 @@ body {
   .price-slider {
     width: 100%;
   }
+
+  .inline-slider {
+    padding: 10px 5px;
+  }
+
+  .pagination {
+    gap: 6px;
+  }
+
+  .page-button {
+    padding: 6px 10px;
+    min-width: 35px;
+    font-size: 0.9rem;
+  }
+
+  .nonveg-card button {
+    max-width: 100%;
+  }
+}
+
+/* 🍞 Toastify Base Customization */
+.Toastify__toast {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+.Toastify__toast--success {
+  background: #27ae60;
+  color: #fff;
+}
+
+.Toastify__progress-bar {
+  background: #fff;
 }

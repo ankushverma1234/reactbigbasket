@@ -1,4 +1,6 @@
-/* Reset & Base Styles */
+/* ============================= 
+   Reset & Base Styles
+============================= */
 * {
   margin: 0;
   padding: 0;
@@ -17,11 +19,13 @@ body {
   position: relative;
 }
 
-/* Header */
+/* =============================
+   Header
+============================= */
 .app-header {
   background: #1e2a47;
   color: white;
-  padding: 20px 15px;
+  padding: 15px 34px;
   position: relative;
   top: 0;
   z-index: 1000;
@@ -58,7 +62,39 @@ body {
   100% { transform: scaleX(0); }
 }
 
-/* Navbar */
+/* =============================
+   Auth Links (Sign In | Register)
+============================= */
+.auth-links {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 1100;
+  color: white;
+  user-select: none;
+}
+
+.auth-links a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+  color: #f39c12;
+  cursor: pointer;
+}
+
+/* =============================
+   Navbar
+============================= */
 .nav-links {
   display: flex;
   justify-content: center;
@@ -66,6 +102,7 @@ body {
   padding: 15px 0;
   margin-top: 15px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -105,7 +142,9 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Main Content */
+/* =============================
+   Main Content
+============================= */
 .main-content {
   padding: 40px;
   min-height: 70vh;
@@ -147,7 +186,9 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Footer */
+/* =============================
+   Footer
+============================= */
 footer {
   background-color: #1e2a47;
   color: white;
@@ -162,7 +203,9 @@ footer {
   width: 100%;
 }
 
-/* Animation */
+/* =============================
+   Animations
+============================= */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -185,30 +228,9 @@ footer {
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .app-header h1 {
-    font-size: 2.2rem;
-  }
-
-  .main-content {
-    font-size: 1.3rem;
-    padding: 20px;
-  }
-
-  footer {
-    font-size: 1rem;
-  }
-}
-
-/* -------------------------------
-   ADD TO CART BUTTON STYLES
----------------------------------- */
+/* =============================
+   Add To Cart Button
+============================= */
 .add-to-cart-btn {
   background-color: #f39c12;
   color: white;
@@ -232,4 +254,35 @@ footer {
 .add-to-cart-btn:active {
   transform: scale(0.97);
   background-color: #d35400;
+}
+
+/* =============================
+   Responsive Styles
+============================= */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .main-content {
+    font-size: 1.3rem;
+    padding: 20px;
+  }
+
+  footer {
+    font-size: 1rem;
+  }
+
+  /* Responsive update for auth-links */
+  .auth-links {
+    position: static;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 }

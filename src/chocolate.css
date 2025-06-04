@@ -14,13 +14,25 @@ body {
 
 /* 🧾 Page Wrapper */
 .chocolate-page {
-  padding: 40px 440px;
+  padding: 40px 30px;
   display: flex;
   flex-direction: column;
 }
 
+@media (max-width: 1024px) {
+  .chocolate-page {
+    padding: 30px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chocolate-page {
+    padding: 20px 15px;
+  }
+}
+
 /* 🧠 Headings */
-.chocolate-headings {
+.chocolate-heading {
   text-align: center;
   font-size: 2.5rem;
   margin-top: 20px;
@@ -41,7 +53,7 @@ body {
   width: 100%;
   margin: 0 auto 40px auto;
   background: rgba(255, 255, 255, 0.07);
-  padding: 0.5px;
+  padding: 10px;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -51,7 +63,7 @@ body {
 
 .inline-slider h3 {
   font-size: 1.3rem;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   color: #fff;
 }
 
@@ -96,42 +108,12 @@ body {
   gap: 20px;
 }
 
-/* 🧱 Sidebar */
-.filter-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-.filter-sidebar h3 {
-  color: #f1f1f1;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-
-.filter-option {
-  display: block;
-  color: #fff;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
 /* 📦 Main Content Area */
 .chocolate-content {
   flex: 1;
-  margin-left: 270px;
   padding: 20px;
   overflow-x: hidden;
-  height: 100vh;
+  height: auto;
 }
 
 /* 🧊 Product Grid */
@@ -142,13 +124,31 @@ body {
   animation: fadeInUp 0.8s ease-in-out;
 }
 
+@media (max-width: 1024px) {
+  .chocolate-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .chocolate-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .chocolate-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* 🧃 Card Design */
 .chocolate-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(5px);
   border-radius: 20px;
   padding: 20px;
-  width: 220px;
+  width: 100%;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: 0.3s ease;
@@ -165,6 +165,13 @@ body {
   object-fit: cover;
   margin-bottom: 15px;
   border: 4px solid #fff;
+}
+
+@media (max-width: 480px) {
+  .chocolate-image {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .chocolate-card h3 {
@@ -200,6 +207,7 @@ body {
   justify-content: center;
   margin-top: 30px;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .page-button {
@@ -235,49 +243,54 @@ body {
   }
 }
 
-/* 📱 Responsive Design */
-@media (max-width: 1200px) {
-  .chocolate-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Custom Toastify success toast to match your theme */
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #894005, #251501); /* warm chocolate gradient */
+  color: #fff;
+  font-weight: 600;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(187, 106, 41, 0.7);
+  font-size: 1rem;
 }
 
-@media (max-width: 768px) {
-  .chocolate-layout {
-    flex-direction: column;
-  }
-
-  .chocolate-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .filter-sidebar {
-    max-width: 100%;
-    position: relative;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .chocolate-content {
-    margin-left: 0;
-  }
+/* Progress bar color for success */
+.Toastify__progress-bar--success {
+  background: #f2b046; /* lighter golden color */
 }
 
-@media (max-width: 480px) {
-  .chocolate-container {
-    grid-template-columns: 1fr;
-  }
+/* Custom error toast example */
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #b23131, #7a1c1c);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(178, 49, 49, 0.7);
+}
 
-  .chocolate-card {
-    width: 100%;
-  }
+.Toastify__progress-bar--error {
+  background: #e84c4c;
+}
 
-  .chocolate-image {
-    width: 150px;
-    height: 150px;
-  }
+/* Custom info toast example */
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #3a6ea5, #2a5082);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 15px;
+}
 
-  .price-slider {
-    width: 100%;
-  }
+.Toastify__progress-bar--info {
+  background: #6799d6;
+}
+
+/* Custom warning toast example */
+.Toastify__toast--warning {
+  background: linear-gradient(135deg, #d08b29, #bb6a29);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 15px;
+}
+
+.Toastify__progress-bar--warning {
+  background: #f2b046;
 }

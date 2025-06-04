@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './store';
 import './veg.css';
 
+// Toastify imports
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Veg() {
   const vegProducts = useSelector(state => state.products.veg);
   const dispatch = useDispatch();
@@ -24,7 +28,7 @@ function Veg() {
         ? prev.filter((val) => val !== rangeValue)
         : [...prev, rangeValue]
     );
-    setCurrentPage(1); // reset to first page when filter changes
+    setCurrentPage(1);
   };
 
   const handleClearFilters = () => {
@@ -57,15 +61,26 @@ function Veg() {
     }
   };
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.name} added to cart! 🥦`, {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: false,
+      pauseOnHover: false,
+      draggable: true,
+      theme: 'colored',
+    });
+  };
+
   return (
     <div className="veg-page">
-      <h2 className="veg-headings">Vegetable Products</h2>
+      <h2 className="veg-headings">🥦 Vegetable Products</h2>
       <p className="veg-description">
         Welcome to the Vegetable section. Discover a healthy selection of fresh and organic vegetables.
       </p>
 
       <div className="veg-layout">
-        {/* Left Filter */}
         <div className="veg-filter">
           <div className="filter-card">
             <h3 className="filter-title">Filter by Price:</h3>
@@ -79,28 +94,30 @@ function Veg() {
                 {range.value}
               </label>
             ))}
-
-            {/* Clear Filters Button */}
             <button className="clear-button" onClick={handleClearFilters}>
               Clear All Filters ❌
             </button>
           </div>
         </div>
 
-        {/* Right Products */}
         <div className="veg-product-area">
           <div className="veg-container">
-            {currentProducts.map((product, index) => (
-              <div className="veg-card" key={index}>
-                <img src={product.image} alt={product.name} className="veg-image" />
-                <h3>{product.name}</h3>
-                <p>₹{product.price.toFixed(2)}</p>
-                <button onClick={() => dispatch(addToCart(product))}>Add to Cart</button>
-              </div>
-            ))}
+            {currentProducts.length > 0 ? (
+              currentProducts.map((product, index) => (
+                <div className="veg-card" key={index}>
+                  <img src={product.image} alt={product.name} className="veg-image" />
+                  <h3>{product.name}</h3>
+                  <p>₹{product.price.toFixed(2)}</p>
+                  <button onClick={() => handleAddToCart(product)}>
+                    Add to Cart
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p className="no-products">No products found for selected filters.</p>
+            )}
           </div>
 
-          {/* Pagination */}
           <div className="pagination">
             <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
               ⬅ Previous
@@ -122,11 +139,11 @@ function Veg() {
           </div>
         </div>
       </div>
+
+      {/* Toast Notification Container */}
+      <ToastContainer />
     </div>
   );
-
-
-  
 }
 
 export default Veg;

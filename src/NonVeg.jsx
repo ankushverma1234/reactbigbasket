@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './store';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './nonveg.css';
 
 function NonVeg() {
@@ -35,24 +37,25 @@ function NonVeg() {
     }
   };
 
-  const getPageRange = () => {
-    const range = [];
-    for (let i = currentPage - 2; i <= currentPage + 2; i++) {
-      if (i >= 1 && i <= totalPages) {
-        range.push(i);
-      }
-    }
-    return range;
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.name} added to cart! 🍗`, {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: false,
+      pauseOnHover: false,
+      draggable: true,
+      theme: 'dark',
+    });
   };
 
   return (
     <div className="nonveg-page">
-      <h2 className="nonveg-headings">Nonveg Products</h2>
+      <h2 className="nonveg-headings">🍗 Non-Veg Products</h2>
       <p className="nonveg-description">
         Welcome to the Non-Veg section. Explore a delicious variety of premium meat dishes.
       </p>
 
-      {/* 🔶 Price Slider Section */}
       <div className="inline-slider">
         <h3>Filter by Price</h3>
         <input
@@ -69,7 +72,6 @@ function NonVeg() {
         </div>
       </div>
 
-      {/* 🛒 Products Section */}
       <div className="nonveg-content">
         <div className="nonveg-container">
           {currentProducts.length > 0 ? (
@@ -78,7 +80,7 @@ function NonVeg() {
                 <img src={product.image} alt={product.name} className="nonveg-image" />
                 <h3>{product.name}</h3>
                 <p>₹{product.price.toFixed(2)}</p>
-                <button onClick={() => dispatch(addToCart(product))}>
+                <button className="add-cart-btn" onClick={() => handleAddToCart(product)}>
                   Add to Cart
                 </button>
               </div>
@@ -88,20 +90,18 @@ function NonVeg() {
           )}
         </div>
 
-        {/* Pagination */}
         <div className="pagination">
           <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
             ⬅ Previous
           </button>
 
-          {getPageRange().map(page => (
+          {Array.from({ length: totalPages }, (_, index) => (
             <button
-              key={page}
-              aria-label={`Go to page ${page}`}
-              className={`page-button ${currentPage === page ? 'active' : ''}`}
-              onClick={() => goToPage(page)}
+              key={index + 1}
+              className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+              onClick={() => goToPage(index + 1)}
             >
-              {page}
+              {index + 1}
             </button>
           ))}
 
@@ -110,6 +110,8 @@ function NonVeg() {
           </button>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 }
