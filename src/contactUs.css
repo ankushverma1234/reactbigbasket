@@ -1,0 +1,110 @@
+/* 🎯 ContactUs.css */
+
+/* Container Styling */
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07); /* glassmorphic look */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #fff;
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Headings */
+.contact-container h1 {
+  font-size: 3rem; /* Match AboutUs */
+  margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #2c3e50; /* Match AboutUs */
+  text-shadow: none;
+}
+
+.contact-container p {
+  font-size: 1.11rem; /* Match AboutUs paragraph */
+  margin-bottom: 30px;
+  color: #323030;
+  line-height: 1.8;
+  padding: 0 1rem;
+}
+
+/* Form Layout */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs and Textarea */
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00a8ff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 168, 255, 0.5);
+}
+
+/* Submit Button */
+.contact-form button {
+  padding: 12px;
+  background: linear-gradient(to right, #00a8ff, #0097e6);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #0097e6;
+  transform: scale(1.03);
+}
+
+/* ✨ Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 600px) {
+  .contact-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .contact-container h1 {
+    font-size: 2rem;
+  }
+
+  .contact-container p {
+    font-size: 1rem;
+  }
+
+  .contact-form button {
+    font-size: 0.95rem;
+  }
+}

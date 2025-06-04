@@ -37,7 +37,7 @@ html, body {
 
 /* ✅ Cart Page */
 .cart-page {
-  padding: 100px 440px 40px; /* Extra top padding to avoid header overlap */
+  padding: 100px 440px 40px;
   display: flex;
   flex-direction: column;
 }
@@ -265,13 +265,17 @@ button:hover {
   }
 
   .discount-buttons button {
-    margin: 5px;
+    margin: 5px 0;
     width: 100%;
   }
 
   .coupon-section input {
     width: 100%;
     margin-bottom: 8px;
+  }
+
+  .coupon-section button {
+    width: 100%;
   }
 
   .cart-summary {
@@ -284,7 +288,13 @@ button:hover {
 
   .header {
     justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
     padding: 10px;
+  }
+
+  .header a {
+    margin: 6px 10px;
     font-size: 0.95rem;
   }
 }

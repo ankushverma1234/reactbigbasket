@@ -14,6 +14,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Orders Wrapper */
@@ -27,10 +29,9 @@ body {
   margin: 50px auto;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   animation: fadeInUp 1s ease-in-out;
-
-  /* Make sure width shrinks on smaller screens */
   width: 90%;
-  word-wrap: break-word; /* wrap long text nicely */
+  word-wrap: break-word;
+  transition: box-shadow 0.3s ease;
 }
 
 /* Header */
@@ -39,6 +40,7 @@ body {
   font-size: 2.5rem;
   color: #2ecc71;
   margin-bottom: 30px;
+  line-height: 1.2;
 }
 
 /* Order List */
@@ -65,6 +67,7 @@ body {
   font-weight: bold;
 }
 
+/* Order Card */
 .order-card {
   background: rgba(224, 247, 250, 0.1);
   backdrop-filter: blur(5px);
@@ -72,13 +75,15 @@ body {
   padding: 20px;
   margin-bottom: 30px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeIn 1s ease-in;
 }
 
-.order-card:hover {
+.order-card:hover,
+.order-card:focus-within {
   transform: translateY(-10px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
 /* Order Info */
@@ -106,6 +111,13 @@ body {
   border-radius: 8px;
   color: #333;
   word-wrap: break-word;
+  transition: background-color 0.3s ease;
+}
+
+.order-items li:hover,
+.order-items li:focus {
+  background-color: #e1f7fa;
+  outline: none;
 }
 
 /* Animations */
@@ -128,14 +140,13 @@ body {
   }
 
   .orders-container h1 {
-    font-size: 2rem; /* You said keep font size - but for better fit on mobile, slight downscale */
+    font-size: 2rem;
   }
 
   .order-card {
     padding: 15px;
   }
 
-  /* Make sure nested lists have no overflow */
   .order-items {
     padding-left: 15px;
   }

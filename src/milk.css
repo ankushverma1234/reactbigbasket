@@ -296,3 +296,69 @@ body {
 .Toastify__progress-bar--success {
   background: #74ebd5 !important;
 }
+
+/* ===== MOBILE COMPATIBILITY ===== */
+
+@media (max-width: 768px) {
+  /* Sidebar becomes horizontal on smaller screens */
+  .filter-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 15px 10px;
+    border-radius: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  /* Filter options arranged horizontally */
+  .filter-option {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Content area uses full width on small screens */
+  .milk-content {
+    margin-left: 0;
+    padding: 10px 15px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Reduce paddings on very small screens */
+  .milk-page {
+    padding: 15px 10px;
+  }
+
+  /* Smaller headings */
+  .milk-headings {
+    font-size: 2rem;
+  }
+
+  /* Smaller description text */
+  .milk-description {
+    font-size: 1rem;
+  }
+
+  /* Price slider full width */
+  .price-slider {
+    width: 100%;
+  }
+
+  /* Cards full width */
+  .milk-card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Smaller pagination buttons */
+  .page-button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}

@@ -62,6 +62,7 @@ body {
   padding: 4px 8px;
   border-radius: 6px;
   max-width: 220px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .filter-card:hover {
@@ -299,12 +300,77 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .veg-page {
+    padding: 25px 20px;
+  }
+  .veg-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+  .veg-card {
+    width: 100%;
+  }
+  .veg-filter {
+    max-height: 350px;
+  }
+}
+
 @media (max-width: 600px) {
   .veg-page {
     padding: 20px 15px;
   }
+  .veg-layout {
+    padding: 0 10px;
+  }
+  .veg-filter {
+    margin-left: 0;
+    max-width: 100%;
+    max-height: 300px;
+  }
+  .veg-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-right: 0;
+  }
   .veg-card {
     width: 100%;
     margin-right: 0;
+  }
+  .veg-image {
+    width: 140px;
+    height: 140px;
+  }
+  .veg-headings {
+    font-size: 2rem;
+  }
+  .veg-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 400px) {
+  .veg-page {
+    padding: 15px 10px;
+  }
+  .veg-headings {
+    font-size: 1.75rem;
+  }
+  .veg-description {
+    font-size: 0.95rem;
+  }
+  .veg-image {
+    width: 120px;
+    height: 120px;
+  }
+  .veg-card button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
   }
 }

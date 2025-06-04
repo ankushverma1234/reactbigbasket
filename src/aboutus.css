@@ -1,0 +1,65 @@
+.aboutus-container {
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.aboutus-title {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.aboutus-text {
+  font-size: 1.25rem;
+  color: #555;
+  line-height: 1.8;
+  padding: 0 1rem;
+}
+
+/* Optional: Add fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔽 Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .aboutus-container {
+    padding: 1.5rem 1rem;
+    margin: 2rem 1rem;
+  }
+
+  .aboutus-title {
+    font-size: 2rem;
+  }
+
+  .aboutus-text {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutus-title {
+    font-size: 1.7rem;
+  }
+
+  .aboutus-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}

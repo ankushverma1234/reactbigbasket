@@ -1,7 +1,7 @@
-/* Reset & Base Styles */
+/* 🌐 Reset & Base Styles */
 html, body {
   margin: 0;
-  padding: 1110;
+  padding: 0; /* 🔧 fixed invalid value 1110 */
   height: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -22,42 +22,40 @@ body {
   flex-direction: column;
 }
 
-/* Header Styles */
+/* 🧭 Header */
 header, .navbar, .nav-container {
   width: 100%;
   background: linear-gradient(to right, #56ab2f, #a8e063);
   padding: 20px 0;
-  box-sizing: border-box;
 }
 
-/* Main Content */
+/* 🏡 Home Layout */
 .home-page {
   flex: 1;
-  min-height: 100vh;
   padding: 40px 90px;
   max-width: 1500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
 .home-wrapper {
   padding: 5px 10px;
-  color: #fff;
 }
 
-/* Hero Section */
+/* 🚀 Hero Section */
 .hero {
   width: 100%;
   text-align: center;
-  padding: 50px 30px;
+  padding: 60px 30px;
   margin: 0 auto 50px;
   max-width: 1000px;
-  background: linear-gradient(to right, #56ab2f, #a8e063);
-  border-radius: 900px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 60px;
   color: white;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.8s ease;
 }
 
 .hero h1 {
@@ -70,11 +68,11 @@ header, .navbar, .nav-container {
 
 .hero p {
   font-size: 1.2rem;
-  color: #e0f7fa;
+  color: #f1f1f1;
   opacity: 0.9;
 }
 
-/* Category Section */
+/* 🧱 Category Section */
 .category-list {
   display: flex;
   flex-direction: column;
@@ -85,9 +83,9 @@ header, .navbar, .nav-container {
   display: flex;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
-  border-radius: 4px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
   animation: fadeInUp 0.8s ease;
   width: 100%;
@@ -129,6 +127,7 @@ header, .navbar, .nav-container {
   margin-bottom: 20px;
 }
 
+/* 🛒 Button */
 .shop-btn {
   align-self: flex-start;
   padding: 14px 28px;
@@ -147,8 +146,12 @@ header, .navbar, .nav-container {
   transform: scale(1.05);
 }
 
-/* Responsive Design */
+/* 📱 Responsive */
 @media (max-width: 768px) {
+  .home-page {
+    padding: 30px 20px;
+  }
+
   .category-card {
     flex-direction: column;
     min-height: auto;
@@ -177,14 +180,23 @@ header, .navbar, .nav-container {
 
   .hero {
     padding: 30px 15px;
+    border-radius: 30px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 
   .home-wrapper {
-    padding: 30px 15px;
+    padding: 20px 10px;
   }
 }
 
-/* Animations */
+/* ✨ Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -205,7 +217,7 @@ header, .navbar, .nav-container {
   }
 }
 
-/* Toastify Custom Styling */
+/* 🔔 Toastify Custom Styling */
 .Toastify__toast {
   background: linear-gradient(135deg, #56ab2f, #a8e063);
   color: #e0f7fa;

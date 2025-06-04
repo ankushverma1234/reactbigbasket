@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Soft pink to orange gradient */
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
   color: #fff;
   height: 100vh;
   display: flex;
@@ -25,7 +25,7 @@ body {
 .app-header {
   background: #1e2a47;
   color: white;
-  padding: 15px 34px;
+  padding: 15px 60px;
   position: relative;
   top: 0;
   z-index: 1000;
@@ -97,9 +97,9 @@ body {
 ============================= */
 .nav-links {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px 0;
+  justify-content:    center;
+  gap: 22px;
+  padding: 8px 0;
   margin-top: 15px;
   width: 100%;
   flex-wrap: wrap;
@@ -113,7 +113,7 @@ body {
   border-radius: 50px;
   position: relative;
   transition: 0.3s ease-in-out;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
 }
 
 .nav-links a::before {
@@ -204,31 +204,6 @@ footer {
 }
 
 /* =============================
-   Animations
-============================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =============================
    Add To Cart Button
 ============================= */
 .add-to-cart-btn {
@@ -257,7 +232,32 @@ footer {
 }
 
 /* =============================
-   Responsive Styles
+   Animations
+============================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================
+   Responsive Styles - Tablet
 ============================= */
 @media (max-width: 768px) {
   .nav-links {
@@ -279,10 +279,51 @@ footer {
     font-size: 1rem;
   }
 
-  /* Responsive update for auth-links */
   .auth-links {
     position: static;
     justify-content: center;
     margin-bottom: 10px;
+  }
+}
+
+/* =============================
+   Responsive Styles - Mobile
+============================= */
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .auth-links {
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.95rem;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .main-content {
+    font-size: 1.1rem;
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  .main-content p {
+    font-size: 1rem;
+  }
+
+  .add-to-cart-btn {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 15px 10px;
   }
 }

@@ -1,14 +1,14 @@
 /* register.css */
 
 .register-container {
-  max-width: 400px;
+  padding: 2rem;
   margin: 3rem auto;
-  padding: 2.5rem 3rem;
-  background: #f9fafd;
-  border-radius: 15px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
-  color: #2c3e50;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
   transition: transform 0.3s ease;
 }
 
@@ -93,12 +93,15 @@
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 6px 20px #6c63ff80;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  outline: none;
 }
 
-.register-container form button[type="submit"]:hover {
+.register-container form button[type="submit"]:hover,
+.register-container form button[type="submit"]:focus {
   background: linear-gradient(135deg, #5747b2, #2b2187);
   box-shadow: 0 8px 30px #5747b280;
+  transform: translateY(-2px);
 }
 
 .register-container form .gender-error {
@@ -107,6 +110,7 @@
   font-size: 0.95rem;
 }
 
+/* Responsive Design */
 @media (max-width: 480px) {
   .register-container {
     padding: 2rem 2rem;
@@ -115,6 +119,13 @@
 
   .register-container h2 {
     font-size: 1.75rem;
+  }
+
+  .register-container form input[type="text"],
+  .register-container form input[type="email"],
+  .register-container form input[type="tel"],
+  .register-container form input[type="password"] {
+    font-size: 1rem;
   }
 
   .register-container form button[type="submit"] {
