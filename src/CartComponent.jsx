@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import QRCode from 'react-qr-code';
 import emailjs from 'emailjs-com';
 
-function CartComponent() {
+function CartComponent({ isAuthenticated }) {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,6 +35,15 @@ function CartComponent() {
   useEffect(() => {
     setOrderId('ORD-' + new Date().getTime());
   }, []);
+
+  // Helper: Check auth before proceeding
+  const checkAuthAndProceed = (callback) => {
+    if (!isAuthenticated) {
+      navigate('/signin', { state: { from: '/cart' } });
+    } else {
+      callback();
+    }
+  };
 
   const handleCouponApply = () => {
     const code = couponCodeRef.current.value.trim().toUpperCase();
@@ -91,7 +100,6 @@ function CartComponent() {
       }
     }
 
-    // Use locale string for better date & time display on all devices
     const purchaseDateTime = new Date().toLocaleString();
 
     const cartObjects = cart.map((item) => ({
@@ -190,19 +198,19 @@ function CartComponent() {
           <div className="discount-buttons">
             <span>Select Discount:</span>
             <button
-              onClick={() => setDiscountPercent(10)}
+              onClick={() => checkAuthAndProceed(() => setDiscountPercent(10))}
               disabled={discountPercent === 10}
             >
               10%
             </button>
             <button
-              onClick={() => setDiscountPercent(20)}
+              onClick={() => checkAuthAndProceed(() => setDiscountPercent(20))}
               disabled={discountPercent === 20}
             >
               20%
             </button>
             <button
-              onClick={() => setDiscountPercent(30)}
+              onClick={() => checkAuthAndProceed(() => setDiscountPercent(30))}
               disabled={discountPercent === 30}
             >
               30%
@@ -211,7 +219,7 @@ function CartComponent() {
 
           <div className="coupon-section">
             <input type="text" ref={couponCodeRef} placeholder="Enter Coupon Code" />
-            <button onClick={handleCouponApply}>Apply Coupon</button>
+            <button onClick={() => checkAuthAndProceed(handleCouponApply)}>Apply Coupon</button>
             {couponMessage && <p>{couponMessage}</p>}
           </div>
 
@@ -235,22 +243,20 @@ function CartComponent() {
 
             <div className="payment-method">
               <h3>Select Payment Method:</h3>
-              <button onClick={() => setPaymentMethod('qr')}>QR Code</button>
-              <button onClick={() => setPaymentMethod('card')}>Card</button>
+              <button onClick={() => checkAuthAndProceed(() => setPaymentMethod('qr'))}>QR Code</button>
+              <button onClick={() => checkAuthAndProceed(() => setPaymentMethod('card'))}>Card</button>
             </div>
 
             {paymentMethod === 'qr' && (
               <div className="qr-section">
                 <h4>Scan UPI QR to pay ₹{finalPrice.toFixed(2)}</h4>
                 <QRCode
-                  value={`upi://pay?pa=6392391177@ptyes&pn=Ankush&am=${finalPrice.toFixed(
-                    2
-                  )}&cu=INR`}
+                  value={`upi://pay?pa=6392391177@ptyes&pn=Ankush&am=${finalPrice.toFixed(2)}&cu=INR`}
                 />
                 <p>
                   <b>UPI ID: Ankush@ybl</b>
                 </p>
-                <button onClick={handleCompletePurchase}>
+                <button onClick={() => checkAuthAndProceed(handleCompletePurchase)}>
                   Mark as Paid & Complete
                 </button>
               </div>
@@ -283,17 +289,15 @@ function CartComponent() {
                   value={cvv}
                   onChange={(e) => setCvv(e.target.value)}
                 />
-                <button onClick={handleCompletePurchase}>Pay & Complete</button>
+                <button onClick={() => checkAuthAndProceed(handleCompletePurchase)}>
+                  Pay & Complete
+                </button>
               </div>
             )}
           </div>
         </>
       ) : (
         <p>Your cart is empty.</p>
-      )}
-
-      {showThankYou && (
-        <h2 style={{ color: 'green' }}>Thank you for your purchase......</h2>
       )}
     </div>
   );
