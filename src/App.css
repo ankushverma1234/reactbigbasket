@@ -1,11 +1,15 @@
 /* ============================= 
    Reset & Base Styles
 ============================= */
-* {
+* 
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  height: 100%;
+  background: white;  /* ensure full white background */
+  overflow-x: hidden; /* to prevent horizontal scroll if any */
 }
+
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -25,7 +29,7 @@ body {
 .app-header {
   background: #1e2a47;
   color: white;
-  padding: 15px 60px;
+  padding: 30px 62.9px;
   position: relative;
   top: 0;
   z-index: 1000;
@@ -139,7 +143,7 @@ body {
 
 .nav-links a.active {
   background: #8e44ad;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px rgba(25, 22, 22, 0.4);
 }
 
 /* =============================
